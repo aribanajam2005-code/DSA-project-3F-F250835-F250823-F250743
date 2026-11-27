@@ -1,0 +1,119 @@
+about.txt:
+
+----------------------------------------------------------
+MAYDAY-404 : Real-Time Console Aviation Simulator
+Course  : Data Structures 
+Team    : Team #_CS_3F   (Ariba Najam , Jannat Ejaz , Muntaha)
+Modules : 1 to 11 (linked list, hash table, queue, heap, stack,
+          BST, AVL, graph, BFS/DFS, Dijkstra, MST, files)
+
+
+
+airspace.txt:
+
+# from to travelTimeInTicks (corridors work in both directions)
+ControlTower Runway12 2
+ControlTower AirSegment 2
+ControlTower SyntaxSector 2
+ControlTower HoldingDelta 1
+AirSegment Runway04 1
+AirSegment CacheFly 1
+CacheFly Runway09 1
+SyntaxSector Runway17 1
+SyntaxSector AlphaTree 2
+HoldingDelta AlphaTree 3
+AlphaTree RestrictedZone 2
+
+
+
+crew.txt:
+
+# employeeID name role assignedCallsign (use _ for spaces)
+E101 Capt._M.M._Alam Pilot BB-876
+E102 Capt._Rashid_Minhas Pilot BB-437
+E103 Capt._Marium_Mukhtiar Pilot BB-211
+E104 Capt._Rifat_Haye Pilot BB-940
+E105 Capt._Ayesha_Farooq Pilot BB-176
+E106 Capt._Yuri_Hiroshi Pilot NA-640
+E107 Capt._Charlie_Baron Pilot NA-429
+E108 Sara_Khan Co-Pilot BB-876
+E109 Bilal_Ahmed Cabin-Crew BB-437
+E110 Hina_Malik Cabin-Crew BB-211
+
+
+
+flights.txt:
+
+# callsign aircraftType airline origin destination passengers fuel sector runway priority arrivalTick
+BB-876 Airbus-A320neo BlackBox Lahore Faisalabad 160 20 AirSegment Runway04 9 1
+BB-437 Viking-DHC-8 BlackBox Multan Faisalabad 60 18 CacheFly Runway09 9 1
+BB-211 ATR-72 BlackBox Karachi Faisalabad 70 22 AlphaTree Runway17 9 1
+BB-940 MedEvac-1 BlackBox Islamabad Faisalabad 6 16 ControlTower Runway12 9 1
+
+
+
+gamemenu.txt:
+
+========================= MayDay-404 ===========================
+[01] Register Aircraft            [13] Display Pending Arrivals
+[02] Register Crew Member         [14] Display Crew Members
+[03] Search Flight by Call Sign   [15] Display Flight Records
+[04] Add Normal Arrival           [16] Display Airspace Network
+[05] Add Emergency Arrival        [17] BFS Radar Sweep
+[06] Process Next Landing         [18] DFS Sector Traversal
+[07] Clear Flight for Runway      [19] Search for Missing Flight
+[08] Reroute Flight               [20] Find Fastest Route to Runway
+[09] Intercept Aircraft           [21] Generate Minimum Radar Coverage
+[10] Escalate Priority            [22] Compare BST and AVL Heights
+[11] Counter Cyber Attack         [23] End Turn/Advance Tick
+[12] Undo Last Command            [24] Exit to Main Menu
+================================================================
+
+
+
+leaderboard.txt:
+
+#|CRO|Result|Cred|Ticks|Crash|Hijack|Breach|Date
+1|ariba|LOSE|0|1|0|0|0|2026-11-21 15:27
+
+
+
+rules.txt:
+
+# lines with KEY=VALUE are read by the game
+maxTicks=30
+startCredibility=100
+maxCredibility=200
+----------------------------------------------------------
+MAYDAY-404 RULES
+1. You are the Chief Routing Officer (CRO). Survive all ticks.
+2. One tick = one turn = 30 simulated seconds. You get 2 actions per turn.
+3. Viewing radar / manifest / map / pending arrivals is free.
+4. Wrong command = -5 credibility (-10 if the Control Tower is degraded).
+5. Win: survive every tick with no crash, hijack, cyber breach or war failure.
+6. Lose: any of the above, or credibility reaches zero.
+7. Credibility: landing +2, hijack +20, cyber +15, war +30, missing +20.
+
+
+
+scenario.txt:
+
+# tick kind name aircraft airline sector runway fuel passengers
+# kinds: NORMAL FUEL MEDICAL WEATHER MECH HIJACK WAR CYBER MISSING
+# CYBER: name = hacker group, sector = attacked sector
+# MISSING: name = flight, sector = last known sector, fuel = tick window, passengers = credibility needed
+# RANDOM can be written instead of a sector or runway
+3 NORMAL BB-301 ATR-72 BlackBox CacheFly Runway09 20 70
+5 HIJACK BB-550 Airbus-A320neo BlackBox AirSegment Runway04 24 150
+8 FUEL BB-612 Viking-DHC-8 BlackBox SyntaxSector Runway09 6 50
+9 CYBER PhantomRoot - - SyntaxSector - 0 0
+12 MEDICAL BB-720 MedEvac-1 BlackBox ControlTower Runway12 14 4
+14 WEATHER BB-733 Airbus-A320neo BlackBox HoldingDelta Runway12 14 120
+16 MISSING PK404 - - SyntaxSector - 9 54
+18 MECH BB-808 ATR-72 BlackBox RANDOM RANDOM 12 60
+20 MISSING FT739 - - CacheFly - 13 40
+22 NORMAL BB-909 Viking-DHC-8 BlackBox AirSegment Runway04 20 60
+24 WAR NA-640 MiG-21 NullAir AlphaTree Runway12 20 1
+24 WAR NA-429 Fighting-Falcon NullAir AlphaTree Runway12 20 1
+27 NORMAL BB-915 ATR-72 BlackBox CacheFly Runway09 20 70
+
